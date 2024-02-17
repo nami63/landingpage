@@ -3,7 +3,7 @@
 
 /*===== VARIABLES CSS =====*/
 :root {
-  --header-height: 3rem;
+  --header-height: 5rem;
 
   /*========== Colors ==========*/
   --first-color: #069C54;
@@ -81,13 +81,23 @@ body.dark-theme{
 }
 
 body{
-  margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
   line-height: 1.6;
+  
 }
+.bd-container{
+    left: auto;
+    object-fit: cover;
+}
+
+.nav{
+  max-width: 100%;
+  padding: 0 20px; /* Add padding to prevent content from touching the edges */
+}
+
 
 h1,h2,h3,p,ul{
   margin: 0;
@@ -109,7 +119,7 @@ img{
 
 /*========== CLASS CSS ==========*/
 .section{
-  padding: 4rem 0 2rem;
+  padding: 2rem 0 2rem;
 }
 
 .section-title, .section-subtitle{
@@ -131,10 +141,14 @@ img{
 
 /*========== LAYOUT ==========*/
 .bd-container{
-  max-width: 960px;
-  width: calc(100% - 2rem);
-  margin-left: var(--mb-2);
-  margin-right: var(--mb-2);
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.nav{
+  max-width: 100%;
+  padding: 0;
 }
 
 .bd-grid{
@@ -150,6 +164,7 @@ img{
   z-index: var(--z-fixed);
   background-color: var(--body-color);
 }
+
 
 /*========== NAV ==========*/
 .nav{
@@ -266,39 +281,155 @@ img{
   margin-bottom: var(--mb-4);
 }
 
-.home__img{
-  width: 300px;
-  justify-self: center;
+.showcase video{
+  position: absolute;
+  height: 100%;
+  right: 0;
+  left: 0;
+  object-fit: cover;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.toogle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/*========== BUTTONS ==========*/
-.button{
-  display: inline-block;
-  background-color: var(--first-color);
-  color: #FFF;
-  padding: .75rem 1rem;
-  border-radius: .5rem;
-  transition: .3s;
+.video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
 }
 
-.button:hover{
-  background-color: var(--first-color-alt);
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
 }
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+  size: 50px;
+  font-size: 3rem;
+}
+
+
+
+
 
 /*========== ABOUT ==========*/
-.about__data{
-  text-align: center;
+.carousel {
+  overflow: hidden;
+  position: relative;
 }
 
-.about__description{
-  margin-bottom: var(--mb-3);
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
 }
 
-.about__img{
-  width: 280px;
-  border-radius: .5rem;
-  justify-self: center;
+.carousel img {
+  flex: 0 0 100%;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto; /* Move the images to the right side */
+  margin-right: 30px;
+  border-top-left-radius: 100px;
 }
+.weddings-section__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: inherit;
+}
+
+.weddings-image__container {
+  width: 45%;
+  text-align: left; 
+  margin-right: auto; /* Move the images to the right side */
+  margin-left: 30px;
+}
+
+.weddings-image__content {
+  max-width: 30%;
+  height: auto;
+  border-radius: 30px;
+  
+}
+
+.weddings-section__content {
+  width: 45%;
+  text-align: right; 
+  margin-left: auto;
+  margin-right: 100px;
+}
+
+
+.line-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-left: 0.6rem;
+}
+
+.line {
+  width: 50px;
+  height: 2px;
+  background-color: #ddd;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.active-line {
+  background-color: #333;
+}
+.orange-button {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.orange-button:hover {
+  background-color: darkorange;
+}
+
+.orange-button i {
+  margin-left: 5px;
+}
+
+
+
+
 
 /*========== SERVICES ==========*/
 .services__container{
@@ -326,6 +457,8 @@ img{
 .services__description{
   padding: 0 1.5rem;
 }
+
+
 
 /*========== MENU ==========*/
 .menu__container{

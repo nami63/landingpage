@@ -1,4 +1,4 @@
-/*==================== SHOW MENU ====================*/
+
 const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
@@ -12,6 +12,53 @@ const showMenu = (toggleId, navId) =>{
     }
 }
 showMenu('nav-toggle','nav-menu')
+
+let currentIndex = 0;
+const totalImages = 4; // Total number of images
+const imageWidth = 100; // Width of each image
+
+function createLines() {
+    const lineContainer = document.querySelector('.line-container');
+    for (let i = 0; i < totalImages; i++) {
+        const line = document.createElement('div');
+        line.classList.add('line');
+        if (i === currentIndex) {
+            line.classList.add('active-line');
+        }
+        line.addEventListener('click', () => {
+            currentIndex = i;
+            updateCarousel();
+            updateLines();
+        });
+        lineContainer.appendChild(line);
+    }
+}
+
+function updateLines() {
+    const lines = document.querySelectorAll('.line');
+    lines.forEach((line, index) => {
+        if (index === currentIndex) {
+            line.classList.add('active-line');
+        } else {
+            line.classList.remove('active-line');
+        }
+    });
+}
+
+createLines();
+
+function updateCarousel() {
+    const offset = -currentIndex * imageWidth;
+    const carouselTrack = document.querySelector('.carousel-track');
+    carouselTrack.style.transform = `translateX(${offset}%)`;
+}
+
+updateCarousel(); // Initially update carousel position
+
+
+  
+
+
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
